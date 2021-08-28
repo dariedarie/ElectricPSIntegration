@@ -1,0 +1,330 @@
+KORACI:
+-u eclipsu napraviti od UML dijagrama rdfs fajl
+-generisati .dll fajl od rdfs fajla, preko CIMPRofileCreator
+-napraviti model kodove ubaciti u class ModelDefines
+-dodati enumeracije u class Enums
+-izmeniti u klasi EnumDesc prazan konstruktor
+-izmeniti u klasi ModelResourcesDesc, izmeniti dve metode u okviru regiona Initialization of metadata(pogledati 11 vezbe zbog redosleda dodavanja)
+-odrediti redosled Importovanja (konkretnih klasa),ako naletite na kruznu referencu obratiti se asistentu
+-napraviti svoj xml preko CIMET-a
+-izmeni Import metode i CreateResDesc u PowerTranfImporter(CIM Adapter) i PowTranfConverter metode Populate
+-pokrenuti ModelLabsApp dodati preko Browse-a CIM/XML i Convertovati,treba da ispise dole ko sa vezbi
+-zatim pogledati vezbe 11,12 vezbe na serveru napraviti klase tj. dodati u  NetworkDataModel->DataModel, u Commonu srediti Enums,EnumDescs,Model...(kao sa vezbi 11)
+-U klasama obavezno uraditi metode Has,Get,Set i iz AddRefe,IsRef,RemoveRef
+-U Conteineru promeniti switch
+-pokretanje aplikacije NMSSeflHost pa ModelLabsApp da se Apply Delta, ugasiti ModelLabsApp i pokrenuti NMSTestClient (izabrati 2 i uneti string ModelCoda konkretne klase)
+-ako se radi kako treba proveriti folder Result(Get....xml)
+-napraviti UI (WPF)
+
+Beleske vezbe 1-2: 
+    na osnovu podaaka elektor mereze, zelimo da predstavimo u nas sistem 
+    -CIM UML (CIM Model) napravljen na osnovu IEC standarda (Organizacija za standardizaicju)
+    -Kada smo ucitali XMI (XML metadata interchange) onda zelimo da napravimo 
+    podskup tih klada, uzimamo samo minimalno i dovoljno sto nam treba
+    -Koristimo za to CIM Tool alat i posle cemo to u RDFS format da exportuejemo 
+    -RDFS je exportovani profil u xml formatu, subjekat-predikat-objekat
+    -Nakon sto se profil napravi treba da se klase sa UML diagrama izdvoje i eksportuju u RDFS formatu 
+    -Koraci CIM Toola, 1)Ubaciti klasu 2) Razmisliti da li je apstraktna ili konkretna 
+    3) Ubaciti atribute 4) Proveriti da li postoje relacije koje treba modleovati 5) Proveriti enumeracije koje trba Ubaciti
+
+Vezbe 4: 
+    -elementi mreze, dopunjeni itd. izbace se u XMI format, to se ucita u CIM Profile tool, 
+    izvodji se podksup celokupnog diagram, exportuje se u novi xml fajl koji je znatno manji od XMIa tj. u RDFS.
+    -Postoje sledeci parseri: 
+        -DOM parseri (ucita ceo fajl u memoriju), losi za velike fajlove
+        -SAX (Simple APi for XML) stream parsre, cita bajtove dok ne moze da iz njih iznese zakljucak 
+        cita elemente, event driven(kada naidje na element onda okida dogadjaj) cita deo po deo nije bitna memorija
+            -Metode za obradu XML dokumenta: StartDocument() init potrebnih promenljivih. pre pocetka parsiranja se okida
+            StartElement() poziva se kada se procita pocetag taga, EndElement() i EndDOcument(), Charactes() poziva se kada se procita vrednost tekst navedenog tag-a
+            Local name je samo ime tipa: Descritpion, Name tj. full name je celo ime sa namespaceom: rdf:Descritpion
+            ClassCategory --> Paket
+            Class --> Klasa
+            Property --> atribute
+
+Vezbe 5:
+    CimProfileCreator - Stigne RDFS i onda kretor izbaci C# klase zapakovane u DLL file.
+    DLL jedino sto nema ulaznu tacku tj. nije executable, ostalo je sve isto, moze da se icnlude i koriste klase
+    Od GenerateCode() krece generisanje klasa iz ucitanog RDFSa, za svaku klasu se prosledjuje kom paketu pripada i info. atributi i props. 
+
+Vezbe 6: 
+    Uz pomoc klasa i konkretni podataka koji stizu, pravimo model, popunimo pokatke instance objekata iz dlla i te instace prosledimo importeru i kasnije nasem sistemu 
+    Finalni rezultatu parsiranja CIM XMLa su podaci u obliku ConcreteModel objekata
+    u ConcreteModel klasi imamo razne metode za pretragu parsiranih objekata kao i citanje/upis konkretni entiteta
+    ConcreteModel drzi podatke u ModelMap kolekciji, spolja je Kljuc tipa entiteta 
+    pod tim kljucem imamo unutrasnji recnik gde se nalaze konkretni entiteti 
+    primer:     Spoljnji recnik {
+        Key: BaseVoltage, 
+        Value: Unutrasnji recnik{
+            Key: 131231321 //MRID,
+            Value: Instanca BaseVoltage --> BaseVoltage.cs <-- ovu klasu imamo kada smo izgenerisali DLL
+        },
+        Key: PowerTransformer, 
+        Value: Unutrasnji recnik{
+            Key:  123131312 //MRID,
+            Value: Instanca PowerTransformer1 --> PowerTransformer.cs <-- ovu klasu imamo kada smo izgenerisali DLL
+        }
+        Key: PowerTransformer, 
+        Value: Unutrasnji recnik{
+            Key: 123213213 //MRID,
+            Value: Instanca PowerTransformer2 --> PowerTransformer.cs <-- ovu klasu imamo kada smo izgenerisali DLL
+        }
+    }     
+    <-------------------------------------------------------------->
+    Primer kako izgleda ConcreteModel:
+    LoadCimXMLIntoConcreteModel() --> LoadModelFromExtractFile()
+    ova metoda radi instanciranje i popunjavanje ConcreteModela
+    {
+        'TipKlase: PowerTransformer/BaseVoltage' : {
+            'MRID: 131231' : {FTN.BaseVoltage} //intsancirana klasa
+        }  
+    }
+
+    da bi se sve ovo odradilo koirsti se kombinacija XML parsera i posebnog CIM XML handlera i koristi se assembly tj. DLL za instanciranje konkretnih klasa
+
+    LoadModelFromExtractFile: 
+    1) dovlaci assembly 'Naziv dlla'
+    2) Pravi se CIM Model koji ima SortedDictionary, nasa mapa podataka
+    3) CIMModelLoader.LoadCIMXMLModel --> radi parsiranje, instancira handler i XMLParser.DoParse() poziva start/end element i tako to...
+    CIMModel ima ModelMap recnik recnika konkretnih klasa, u njega se insertuje kada dodje parser do EndElement taga.
+    
+    CIM Object sadrzi sve potrebne informacije za klasu, ali nije instancirana klasa, ta klasa jos nije instancira
+    to radimo tek nakon parsiranja, znaci kad se zavrsi parsiranje i napuni se CIM Model
+    tek nakon toga se instancira klasa. if(modelLoadResult.Success) onda ConcreteModelBuilder
+    builder.GenerateModel(cimModel, assembly) na osnovu te dve stavnke imamo modelBuildResult 
+
+    Dalje ove podatke iz memorije preko adaptera prebacujemo na Server
+    Importer sluzi radi GDA formata da ne bi imali stalno reference na sve dllove i podakte nego da preko univerzalnog data standarda prenesemo podatke na Server
+    public class ConcreteModel ima metode tipa GetObjectBYType, GetAllObjects itd..  uz pomoc njih mozemo da pristupamo svemu sto je isparsirano i napravljeno 
+    
+    CIMET sluzi za generisanje instanci klasa u XML formatu kako bi napunili lakse nas Example XML, ucitavanjem RDFSa
+
+Vezbe 7: 
+    NMS (Network model service) sistem u koji ubacujemo podatke koje imamo u EE mrezi, nase klase koje smo kreirali i popunili do standarda
+    Client salje podakte putem Importera WCF vezom na NMS koji Prima/Cuva/Distribuira podatke za i ka svim komponentama
+    ako nekoj komponenti nesto trebaa ona upita NMS i dobije te podatke
+    Svaki put kada se pojavi nova mreza morali bismo da imamo DLL i da za taj DLL svaki deo sistema da zna, pojavom svakog nobog sistema koji ima svoj dll
+    morali bismo da svaki put taj dll da uvezujemo u sistem. zbog toga je doneta odluka
+    da se formira genericki format (ModelCodes) koji nas sistem predstavlja preko numerickih vrednosti da ne moramo svaki put u sve delove sistema dllove da ubacujemo 
+    
+    DMSType: Opisivanje konkretnih klasa 16bit enumeracija predsavljena hexa 0x0001
+    svaka klasa ima jedinstveni hex ID jedna hex cifra je 4 bita znaci imamo 16 bitova u DMSType
+    Default vrednost za apstraktnu klasu je 0x0000 
+    DMSType koristimo kao jedan od delova unutar ModelCode-a
+    
+    ModelCode: sluze za opisivanje bilo koje klase, njenog atributa kao i hijerarhiju te klase 
+        64bit enumeracija:
+            Nasledjivanje:  32bit             0x10000000 za IOBJ (korensku klasu)             
+            DMSType:        16bit             0x0000 za apstraktnu klasu       
+            Opis atributa:  16bit             0x0001 kod atributa, 0x0000 kod klase
+
+    GID (Globalni identifikator):
+    Primer: Cim XML salje 30 transformatora koji imaju MRID tipa GUID.
+    Klijent i NMS komuniciraju preko MRIDa jer klijent samo za to zna, medjutim kada se komunicira sa nekim od servisa i nms onda nam je sporo MRID koji je tipa stirng
+    stoga se na nivou NMSa uvodi GID koji je numerickog tipa
+    GID je dodeljen kao poseban ModelCode nad IDOBJ
+    64bit vrednost: 
+        Sistem ID: 16bit uvek nula jer koristimo samo jedna sistem inace bi se razlikovao da razlikujemo u kom sistemu trenutno radimo 
+        DMSType: 16bit Odgovara tipu entiteta za koji se GID kreira 
+        Brojac: 32 bit 
+    NE MOZEOM IMATI GID ZA KLASU KOJA NIJE KONKRETNA 
+    PowerSystemResource.Location - GID -> 0000_0001_00000001
+    Location.PowerSystemResources - List<GID>   0000_0003_0000001,
+                                                0000_0004_0000001,
+                                                0000_0004_0000002,
+                                                0000_0004_0000003,
+    Moze samo da ima konkretne klase koje nasledjuju PowerSystemResource
+
+Vezbe 8: 
+    ModelCode predstavljanje nasih klasa i atributa preko generickih brojeva
+    ModelCode su deo standarda GDA (Generic data access) omogucuje cuvanje bilo kod resursa na genericki nacin 
+    Kada bismo imali 10 ralzicitih mreza i cuvamo u relacionoj bazi, da ne bi svaki put dopunjavali ili menjali relacioni model
+    opisujemo klase model kodovima i asocijacijama koriscenjem GDA
+    GDA nam omogucava pristup podacima bez ikakvog znanja o logickoj semi koja se koristi za unutrasnje skladistenje 
+    ModelServer funkcionise po generickom pristupu tj. cuvanju podataka
+    GDA onmogucuje upite i odgovor eu vidu resursa<Property, Vrednost>
+    Resurs -> Objekat neke konkretne klase (Location)
+    Property -> aspekat klase koji se moze opisati 
+    Asocijacija je izmedju resursa koji se kreiraju preko propertija koji su tipa reference
+    ModelCode.PSR_LOCATION npr. 
+
+    Svaki property ima model kode i vrednost. Model code kog je tipa i kojoj klasi pripada
+    var idObjDesc = new Property(ModelCode.IOBJ_DESCRIPTION, "Ovo je neki description"); 
+    Property nema neko znacenje ako nije vezan ni za jedan resurs, konkretnu klasu tj.
+    Property moze da se setuje preko konstruktora ili preko SetValue()
+
+    ResourceDesctiption -> definisanje samog objekta 
+    svaki rd ima gid i listu propertija 
+    var powertrRd = new ResourceDesctiption(long ID, List<ModelCode> propIds) 
+    Common.ModelCodeHelper.cs ima korisne metode tipa CreateGlobalID()
+    takodje i da se ekstraktuje brojac, DMSType itd.. CreateGlobalID(short systemID, short type, int entitytID)
+    powertrRd.AddProperty(idObjMridProp)
+    powertrRd.AddProperty(idObjNameProp)
+
+    Association --> opisuje veze izmedju objekata 
+        Sadrzi identifikator propertija (porpertyID) tipa referenca 
+        vrednost propertija je gid referenciranog objekta 
+
+        var association = new Association(PropertyID, type)
+        var association = new Association(ModelCode.PSR_LOCATION, ModelCode.Location)
+                                          sama ta veza, obj sa druge strane
+
+    Operacije NMSa: 
+    Kompletan CRUD je moguc 
+    CItanje sa model servera Resource Query Service
+    1) GetValues() --> citanje jednog resursa
+       GetValues(long resourceID, List<ModelCode> propIds) saljemo gid transformatora i saljemo propertije koje zelimo 
+       GetValues(0x00000003000000001, List<ModelCode>(){ModelCode.IDOBJ_DESCRIPTION, ModelCode.POWEERTR_AUTO})
+    2) GetExtentValues() --> citanje niza resursa za isti tip objekta --> svi transformatori koji postoje 
+       GetExtentValues(ModelCode code, List<ModelCode>)
+       GetExtentValues(ModelCode.POWERTR, List<ModelCode>(){ModelCode.IDOBJ_DESCRIPTION, ModelCode.POWEERTR_AUTO})
+    3) GetRelatedValues() --> citanje referenciranog resursa
+       GetRelatedValues(long source, List<ModelCode> propIds, Association association)
+    
+    UPIA: funkcionise preko Delta klase, objekat koji nosi potrebne izmene modela 
+    var delta = NewDelta() ima 3 liste, insertOps, updateOps, updateOps
+    delta.addoperation(DeltaOperation.Insert, powertrRd, false); izvrsi upisivanje datog objekta na NMS
+    ~Ukoliko se vrsi insert operacija potrebno je proslediti GID koji ne postoji na servisu 
+    GID kad se salje sa client->server stavlja se u minus tako da bi mogao da nadje slobodno mesto na nmsu a i da ne bi se desila kolizija ako dva istovremeno upisuju na nms sa tim gidom
+    Samo se dodaju property tipa reference, nikad tipa niz referenci 
+
+Vezbe 9: 
+    Adapter/Importer primenjuje deltu tj. prodje sa sve sto je stiglo iz CIM XMLa (Example)
+    napravi ResourceDesctiption i Propertye i posalje na NMS
+
+    Dictionary<string, Dictionary<string, object>> 
+                gid,                mrid, concrete obj.
+    
+
+    Importer sada prolazi kroz ovaj dictionary i od toga pravi 
+    ResourceDesctiption + Atribute i onda se sve to ubacuje u deltu kao InsertOperaciju ciji je cilj da se prosledi na NMS da se sacuva na serveru 
+
+    Model labs Radi konverziju iz XML -> Objects DLL -> Rd + PropRd
+    Apply delta preko mreze posalje podatke i sacuva na NMSu
+    CreateDelta() -> LoadModelFromExtractFile() pravi dictionary dictionarya 
+    uz pomoc assembly-a instanicramo klase dlla sto smo izgenerisali 
+    if(LoadModelFromExtractFile()){
+        TransformModel() -> CreateNMSDelta()     
+    }
+
+    CreateNMSDelta --> odradjuje konverziju xmla u objekte preko metode ConvertModelAndPopulateDelta()
+    Kod ConvertModelAndPopulateDelta je vazan redosled dodavnaja konretnih klasa
+    DMSModel je ResourceDesctiption + PropertyID + ModelCodes
+    CIMMOdel su objekti klase DLLa var powrerTR = new PowerTransformer
+
+    Importer: 
+        mapiranje CIM klasa na DMS klasu 
+        mapiranje CIM atribut na DMS atribut 
+        (mapiranje ne mora da bude 1 na 1 nekad nam nesto nije potrebno od atributa jer mozemo dobiti iz drugog nekog atributa itd..)
+
+    ImportBaseVoltage():
+        1) iz ConcreteModel.GetAllObjectsOfType(Ftn.BaseVoltage), uzima se unutrasnji recnik
+        2) prolazi se kroz sve instance i mapiraju se CIM klase na DMS klase preko konkrento sad: CreateBaseVoltageResourceDescription(cimBaseVoltage) tj. pravi se resource ResourceDesctiption
+        3) kreira se rd -> pravi se gid sa CreateGlobalID, gidovi se prave negativni jer neko iste moze da slaje u isto vreme, ovako negativne slajem i server vidi da su zaista nove instance 
+        negativni gidovi se dobijaju preko ImpoortHelper-a sadrzi dictionary typeCOunter kad se generise novi negativni gid, vraca novi najsveziji gid kad se zatrazi   
+        4) Mapiranje CIM atributa na DMS atribute putem PopulateBaseVoltageProperties(cimBaseVoltage, rd);
+
+    WindigTest():
+        -napravimo rd
+        -napravimo mapiranje gid-mrid
+        -popunjavamo atribute (jedna stavka je popunjavanje referenci, stavljamo gidove kao reference)
+        kad se dodaju gidovi onda moze da nastane ako se ne importuje pre referencirani od referencirajuceg 
+        pucace na populate properties kad hoce odgovarajuci gid da izvuce
+        
+
+Vezbe 10: 
+    Na NMSu podaci su sacuvani u formati RDs + props, na genericki nacin 
+    GDA omogucuje pristup podacima bez znanja o logickoj semi koja se koristi za unustransje skladistenje 
+    GDA definis eupite i odgovore u vidu resursa propertija i vrednosit 
+    GID --->klijent generise negativne gidove iz ralzoga d a en bi doslo do poentcijalne kolizije podataka jer moze vise razlicitih klijenata da radi upis podataka i da ne bi doslo do kolizije 
+    Asocijacije     se odnose na model kodove referenci i niza referenci 
+
+    ModelLabsApp --> sluzi za importovanje podataka na server (ili brisanje ili azuriranje)
+    NMS --> server na koji upisujemo i cuvamo podatke 
+    NetworkModelServiceSelfHost --> WCF aplikacija koja podrzava GerValues(), GetExtendValues() i getRealtedValues()
+
+    redosled: 
+    Prvo podici NMS server 
+    ukoliko nema podataka prvo ih importovati preko ModelLabsApp
+    Mozemo da propitujemo kroz GDA interface tj. kontrakte izlozene wcfom i da aplajujemo deltu 
+
+    GetValues() prosledi se gid i dobije se informacija o tom resursu. propituje se samo za jedna resurs u nasem sistemu 
+    
+    GetExtentValues() vraca niz resursa,  getrvalues jedan resurs vraca a getextend values bi npr vratio sve transformere prosledi se model kod transformatora i list propertija koje zelima 
+    Ova metoda ne vraca direktno niz ResourceDesctiptiona nego vraca iterator upita (kosta dosta da se vraca puno podataka tj. propertija kada se npr zatrazi milion transfomratora onda je to puno podataka kroz mrezu sto putuje)
+    nms stavi trenutno mesto identifikatora koji ide kroz resurse IteratorNext(koliko zelimo narednih resursa)
+    iteratorRewind resetuje iterator npr 200 resursa sa pocetka prvih 200 i pozicionira se na 200 mesto ako opet zatrazimo onda ce od 200-400 da daje 
+    iteratorResourcesTotal koliko ukupno resourcedesca ima 
+    IteratorResourcesLeft --> koliko je ostlao neprocitanih resursa 
+
+    GetRelatedValues() citanje niza resursa vezanih za neki resurs, citanje resursa sa neke strane vze 
+    GID + propIDS + Assosiation tj. odakle dovlacimo 
+    ModelCode propertyID je npr Location_PSRS referencirajuci koji ima vezu na referenciranog cije propertije zelimo da uzmemo 
+    ModelCode type sluzi za filtriranje, npr 0 ce vratiti i transformatore i namotaje jer su psrs oba.. medjutim kad se stavi type 
+    onda se filtrira konkretna klasa npr powertr samo njega zelimo njegove properties
+
+Vezbe 11: 
+    U Commonu se nalaze sve zajednicke info z akliejnta i servera da bi nesmetano funkcionisali 
+    ucitava ga svaka app u systemu i tu se nalazi model koji postoji na nmsu 
+    ModelDefines opisuje ModelCode za dati systme 
+    Enum.cs ovde imamo sve enumeracije u nasem sistemu 
+    EnumDesc.cs sluzi da bi napirali enumeracije atributa odredjene klase, ot korsiti NMSu sustina je da kad god se nova enumeracija doda odmah se dolazi u enum descs 
+    i u konsturktor u listu mapiranja se se doda novi enum 
+
+    ModelResourceDescription, obezbedjuuje dodatne metode za manipulaciu ModelCodeovima npr tipa : getAllPropertyIDs npr. 
+    FirstParent(vraca ko je natklasa) helperi sluse i importeru i nmsu 
+    InitializeTypeInserOrder() i InitializeNonsettablepropertyes()
+    notSettable properties dodaju se sve liste refrenci 
+    klijent uvekj salje podakte kao strani kljuc, 
+    InitializeTypeInserOrder ekvivalentno redosledu importa kada smo iz importera slali transoframtore npr. 
+    Prvo uvek insertovati nezavisne elemente pa onda tek zavistne 
+
+    Kada se dodaje nova klasa prvo se dodaju ModelCode
+    ako ima enumeracije dodaju se i one i u enum descs
+    modelrescdesc ->popunimo importorderids i InitializeNonsettablepropertyes
+    
+    klijent -> pozove proxy.Getvalues() -> ode preko mreze -> dodje do nas -> wcf uzme -> pozove GenericDataAccessgetValues()--> pozove od delegata tu metodu sto je netWorkodel 
+
+    Metoda CreateEntity() sluzi kada se odrati insert treba da se kreira odgovarajuci entitet 
+    NMS zapravi ne cuva podakte kod sebe u ResourceDesctiption + Property vec to cuva u nekom fomatu koji je skoro isti kao i DLL sa klijent strane 
+    kad stigne zahtev z apopunjavanje prvo mora da se kreira prazan entitet, stigne globalID i DMSType i u kontejner implementaciji 
+    preko gida i metode CreateEntity vraci odgovarajucu klasu IdentifiedObjecta 
+
+    Svaka klasa na NMSu ima striktno definisanu strukturu 
+    Prvo dodamo sve propertije koje powertr ima 
+    konstruktor koji im aparamtera glovalID jer od njega se inicijalizuje idobj_gid vrendost 
+    Equals() i GetHashCode() jer se porede objekti... 
+    Iaccess i IReference region 
+    IAccess region HasProperty na nivou svakog entieta koji treba da se upise prolazi se kroz sve propertije transfotmatora i setuju se proeprtiji koje je psorledio klijent 
+    ako nije nista od toga onda ce da se setuje na default vrednost natklase sve do idobj ide 
+    SetProperty setuje propertije a has property proverava da li ima taj prop. 
+    GetProperty() poziva se kada se pozove GetValues/extend/related...
+    
+Vezbe 12: 
+    -Strani kljuc je GID tog entiteta. Npr za transformerWinding ka PowerTransformer to bi bio gid PowerTransformera 
+    ovo vazi za atribut klase koji predstavlja referencu tipa long, vrednost je GID entiteta koji se referencira
+    -Atribut klase koji predstavlja listu referenci (target) je tipa Lista<long> i njegova vrednost je lista GID-ova entiteta koji imaju referencu na pomenutu klasu 
+    Poredjenje liste referenci u Equals() se radi preko helpera koji ide i poziva za svaki element equals.
+    GetValues() se poziva pti ptopitivanjeu 
+
+    svaki kontejener za vaki tip cuva trenutni tip instanci, a prilikom podizanja ucitava iz .data fajla
+    vraca se gid ili lista gidova pri iscitavanju ako je reference ili reference vector type
+    SetProperty() kad se radi insert ili update, ne ukljucuje se lista referenci, zakljucuje se na osnovu strane stranog kljuca 
+
+    IReference set metoda: 
+    IsReferenced() nam govori da li je taj entitet referenciran od bilo kod drugog TE. 
+    GetReferences() vraca reference sve 
+    AddReferences() metodu implementiraju smao klase koje imaju listtu referenci a i da nemaju odraditi BaseVoltage
+    U add i remove refenrece gledamo obrnuti kljuc 
+
+    Insert entity proverava: 
+    da li je null ..
+    uzima gid proverava da li je u containeru 
+    zatim se vidi koji nam container treba preko dms type 
+    ako ne postoji container za novu ksau kreira se 
+    zatim se instanca konkretna kreira 
+    containeru switch case 
+    popunjavaju se properti
+    proverava se da li j properi strani kljuc ka necemu 
+    preuzme se gid i trazi se u containeru 
+    poziva se add reference izvlaci se (obrnuti model code) 
+    nakon reference 
