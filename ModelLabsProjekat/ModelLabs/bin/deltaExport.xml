@@ -1,0 +1,192 @@
+﻿<delta id="0">
+  <operations>
+    <operation type="insert">
+      <ResourceDescriptions count="17">
+        <ResourceDescription>
+          <id gid="0x00000005ffffffff" type="REGULATINGCONTROL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="RC_20001" />
+            <Property id="IDOBJ_NAME" value="REGULATINGCONTROL01" />
+            <Property id="IDOBJ_ALIASNAME" value="RegCon" />
+            <Property id="REGULATINGCONTROL_DISCRETE" value="1" />
+            <Property id="REGULATINGCONTROL_MODE" value="currentFlow" />
+            <Property id="REGULATINGCONTROL_MPHASE" value="N" />
+            <Property id="REGULATINGCONTROL_TRANGE" value="50.3" />
+            <Property id="REGULATINGCONTROL_TVALUE" value="60.3" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005fffffffe" type="REGULATINGCONTROL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="RC_20002" />
+            <Property id="IDOBJ_NAME" value="REGULATINGCONTROL02" />
+            <Property id="IDOBJ_ALIASNAME" value="RegCon2" />
+            <Property id="REGULATINGCONTROL_DISCRETE" value="1" />
+            <Property id="REGULATINGCONTROL_MODE" value="currentFlow" />
+            <Property id="REGULATINGCONTROL_MPHASE" value="N" />
+            <Property id="REGULATINGCONTROL_TRANGE" value="50.3" />
+            <Property id="REGULATINGCONTROL_TVALUE" value="60.3" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000004ffffffff" type="REACTIVECAPABILITYCURVE" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="RCC_30001" />
+            <Property id="IDOBJ_NAME" value="ReactiveCapabilityCurve01" />
+            <Property id="IDOBJ_ALIASNAME" value="ReaCapaCurve" />
+            <Property id="CURVE_CSTYLE" value="constantYValue" />
+            <Property id="CURVE_XMULTIPLIER" value="c" />
+            <Property id="CURVE_XUNIT" value="A" />
+            <Property id="CURVE_Y1MULTIPLIER" value="c" />
+            <Property id="CURVE_Y1UNIT" value="A" />
+            <Property id="CURVE_Y2MULTIPLIER" value="c" />
+            <Property id="CURVE_Y2UNIT" value="A" />
+            <Property id="CURVE_Y3MULTIPLIER" value="c" />
+            <Property id="CURVE_Y3UNIT" value="A" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000002ffffffff" type="CURVEDATA" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="CD_40001" />
+            <Property id="IDOBJ_NAME" value="CurveData01" />
+            <Property id="IDOBJ_ALIASNAME" value="CData" />
+            <Property id="CURVEDATA_XVALUE" value="1.3" />
+            <Property id="CURVEDATA_Y1VALUE" value="2.3" />
+            <Property id="CURVEDATA_Y2VALUE" value="3.3" />
+            <Property id="CURVEDATA_Y3VALUE" value="4.3" />
+            <Property id="CURVEDATA_CURVE" value="0x00000004ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000008ffffffff" type="SYNCHRONOUSMACHINE" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="SM_50001" />
+            <Property id="IDOBJ_NAME" value="SynchronousMachine01" />
+            <Property id="IDOBJ_ALIASNAME" value="SynM" />
+            <Property id="EQUIPMENT_AGGREGATE" value="0" />
+            <Property id="EQUIPMENT_NINSERVICE" value="1" />
+            <Property id="REGULATINGCONDEQ_REGULATINGCONTROL" value="0x00000005ffffffff" />
+            <Property id="SYNCHRONOUSMACHINE_REACTIVECAPABILITYCURVE" value="0x00000004ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000007ffffffff" type="STATICVARCOMPENSATOR" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="SVC_60001" />
+            <Property id="IDOBJ_NAME" value="StaticVarCompensator01" />
+            <Property id="IDOBJ_ALIASNAME" value="StaticVComp" />
+            <Property id="EQUIPMENT_AGGREGATE" value="1" />
+            <Property id="EQUIPMENT_NINSERVICE" value="0" />
+            <Property id="REGULATINGCONDEQ_REGULATINGCONTROL" value="0x00000005ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006ffffffff" type="SHUNTCOMPENSATOR" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="SC_70001" />
+            <Property id="IDOBJ_NAME" value="ShuntCompensator01" />
+            <Property id="IDOBJ_ALIASNAME" value="SComp" />
+            <Property id="EQUIPMENT_AGGREGATE" value="1" />
+            <Property id="EQUIPMENT_NINSERVICE" value="0" />
+            <Property id="REGULATINGCONDEQ_REGULATINGCONTROL" value="0x00000005ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006fffffffe" type="SHUNTCOMPENSATOR" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="SC_70002" />
+            <Property id="IDOBJ_NAME" value="ShuntCompensator02" />
+            <Property id="IDOBJ_ALIASNAME" value="SComp" />
+            <Property id="EQUIPMENT_AGGREGATE" value="1" />
+            <Property id="EQUIPMENT_NINSERVICE" value="0" />
+            <Property id="REGULATINGCONDEQ_REGULATINGCONTROL" value="0x00000005fffffffe" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003ffffffff" type="FREQUENCYCONVERTER" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="FC_80001" />
+            <Property id="IDOBJ_NAME" value="FrequencyConverter01" />
+            <Property id="IDOBJ_ALIASNAME" value="FreqConv" />
+            <Property id="EQUIPMENT_AGGREGATE" value="0" />
+            <Property id="EQUIPMENT_NINSERVICE" value="1" />
+            <Property id="REGULATINGCONDEQ_REGULATINGCONTROL" value="0x00000005ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000009ffffffff" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="T_10001" />
+            <Property id="IDOBJ_NAME" value="TERMINAL01" />
+            <Property id="IDOBJ_ALIASNAME" value="Ter" />
+            <Property id="TERMINAL_CONDUCTINGEQUIPMENT" value="0x00000007ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000009fffffffe" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="T_10002" />
+            <Property id="IDOBJ_NAME" value="TERMINAL02" />
+            <Property id="IDOBJ_ALIASNAME" value="Ter" />
+            <Property id="TERMINAL_CONDUCTINGEQUIPMENT" value="0x00000006ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000009fffffffd" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="T_10003" />
+            <Property id="IDOBJ_NAME" value="TERMINAL03" />
+            <Property id="IDOBJ_ALIASNAME" value="Ter" />
+            <Property id="TERMINAL_CONDUCTINGEQUIPMENT" value="0x00000008ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000009fffffffc" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="T_10004" />
+            <Property id="IDOBJ_NAME" value="TERMINAL04" />
+            <Property id="IDOBJ_ALIASNAME" value="Ter" />
+            <Property id="TERMINAL_CONDUCTINGEQUIPMENT" value="0x00000003ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001ffffffff" type="CONTROL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="C_90001" />
+            <Property id="IDOBJ_NAME" value="Control01" />
+            <Property id="IDOBJ_ALIASNAME" value="Controll" />
+            <Property id="CONTROL_REGULATINGCONDEQ" value="0x00000008ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffe" type="CONTROL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="C_90002" />
+            <Property id="IDOBJ_NAME" value="Control02" />
+            <Property id="IDOBJ_ALIASNAME" value="Controll" />
+            <Property id="CONTROL_REGULATINGCONDEQ" value="0x00000007ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffd" type="CONTROL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="C_90003" />
+            <Property id="IDOBJ_NAME" value="Control03" />
+            <Property id="IDOBJ_ALIASNAME" value="Controll" />
+            <Property id="CONTROL_REGULATINGCONDEQ" value="0x00000006ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffc" type="CONTROL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="C_90004" />
+            <Property id="IDOBJ_NAME" value="Control04" />
+            <Property id="IDOBJ_ALIASNAME" value="Controll" />
+            <Property id="CONTROL_REGULATINGCONDEQ" value="0x00000003ffffffff" />
+          </Properties>
+        </ResourceDescription>
+      </ResourceDescriptions>
+    </operation>
+  </operations>
+</delta>

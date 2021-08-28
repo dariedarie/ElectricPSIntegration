@@ -1,0 +1,58 @@
+﻿<Window x:Class="Client.Views.GetRelatedValuesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="GetRelatedValues" Height="450" Width="800">
+    <Grid>
+
+        <ToolBar HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="793">
+            <Button x:Name="GetValuesButton" Content="GetValues" Click="GetValuesButton_Click" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="84" Height="43" FontFamily="MV Boli" />
+            <Button x:Name="GetExtentValuesButton" Content="GetExtentValues" Click="GetExtentValuesButton_Click" HorizontalAlignment="Left" Margin="0,0,0,-9.667" VerticalAlignment="Top" Width="102" Height="43" FontFamily="MV Boli" />
+            <Button x:Name="GetRelatedValuesButton" Content="GetRelatedValues" HorizontalAlignment="Left" Margin="0,0,0,-9.667" VerticalAlignment="Top" Width="111" Height="43" FontFamily="MV Boli" />
+        </ToolBar>
+
+        <Label x:Name="GidLabel" FontSize="14" FontWeight="Bold" Foreground="Black" Content="GID:" 
+                   HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="282" FontFamily="MV Boli"/>
+        <ComboBox x:Name="GidComboBoxView" ItemStringFormat="0x{0:x16}" SelectedItem="{Binding Path=SelectedGidFromComboBox}" ItemsSource="{Binding Path=GidComboBox}" Margin="10,64,0,0"  Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="372"/>
+
+        <Label x:Name="AssociationLabel" Content="Association:" Foreground="Black"  Height="26" 
+                   VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontFamily="MV Boli" RenderTransformOrigin="-2.032,2.937" Margin="10,95,410,0" />
+        <Label x:Name="PropIdLabel" FontFamily="MV Boli" Content="property id:" Foreground="Black" Height="30" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="31,114,410,0" />
+        <ComboBox x:Name="PropIdComboBoxView" SelectedItem="{Binding Path=SelectedPropIdFromComboBox}" ItemsSource="{Binding Path=PropIdComboBox, Mode=TwoWay}"  Margin="129,114,0,0"  Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="253" RenderTransformOrigin="0.5,0.5"/>
+
+
+        <Label x:Name="TypeLabel" Content="DMS type:" FontFamily="MV Boli" Height="30" Foreground="Black" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="31,144,674,0" />
+        <ComboBox x:Name="TypeComboBoxView"  Margin="129,149,0,0" SelectedItem="{Binding Path=SelectedTypeFromComboBox}" ItemsSource="{Binding Path=TypeComboBox, UpdateSourceTrigger=PropertyChanged}"  Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="253"/>
+
+        <Label x:Name="AttributesLabel" FontFamily="MV Boli" FontSize="14" FontWeight="Bold" Foreground="Black" Content="Property:" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Height="31" Width="318"/>
+        <ListBox x:Name="propsListBox"  ItemsSource="{Binding Path=PropsForSelectedAssociation, UpdateSourceTrigger=PropertyChanged}" 
+                     SelectionMode="Multiple"  Background="White" Margin="10,210,410,48" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <CheckBox  Margin="3" Content="{Binding}" IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected, Mode=TwoWay}" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+
+        <Button x:Name="GetRelatedValuesViewResultButton" FontFamily="MV Boli" Content="GetRelatedValues" Margin="10,0,0,10" Height="24" VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Left" Width="372" Foreground="Black" FontWeight="Bold" Click="GetRelatedValuesViewResultButton_Click"/>
+
+        <Label x:Name="ResultLabel" Content="Ispis:"  FontFamily="MV Boli" Foreground="Black" HorizontalContentAlignment="Center" 
+                   Margin="414,35,23,0" Height="36" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="ResultTextBox" ScrollViewer.CanContentScroll="True"   IsReadOnly="True"  Margin="414,71,10,10">
+            <TextBox.Style>
+                <Style>
+                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Visible"></Setter>
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"></Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+    </Grid>
+</Window>

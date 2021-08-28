@@ -1,0 +1,107 @@
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe.config
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\App.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.lref
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.g.resources
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.exe
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.dll
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.dll
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat\Projekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe.config
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.dll
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.dll
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.pdb
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\App.g.cs
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.lref
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.baml
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.g.resources
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.exe
+C:\Users\David\Desktop\PROJEKTI 2020\IES projekat GOTOV\IES_Projekat_96\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.pdb
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe.config
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.pdb
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.dll
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.dll
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.pdb
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.pdb
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.g.cs
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.g.cs
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.g.cs
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.g.cs
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\App.g.cs
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.lref
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.baml
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.baml
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.baml
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.baml
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.g.resources
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.exe
+C:\Users\colak\Desktop\prela\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.pdb
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.g.cs
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.g.cs
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.g.cs
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.g.cs
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\App.g.cs
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client_MarkupCompile.lref
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.exe
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.pdb
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe.config
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.exe
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\Client.pdb
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.dll
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.dll
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.Common.pdb
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\FTN.ServiceContracts.ServiceContracts.NetworkModelQueryContract.pdb
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\MainWindow.baml
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetRelatedValuesView.baml
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetExtentValuesView.baml
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Views\GetValuesView.baml
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.g.resources
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\NMSTestClient.exe
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\NMSTestClient.pdb
+C:\Users\colak\Desktop\IntegracijProjekat\ModelLabsProjekat\ModelLabs\Client\bin\Debug\NMSTestClient.exe.config
